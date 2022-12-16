@@ -1,0 +1,36 @@
+---
+import Navbar from "../components/Navbar"; //Importamos nuestro componente
+
+const {title} = Astro.props //Creamos una propiedad
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{title}</title>
+</head>
+<body>
+    <Navbar client:load />
+    <!-- Aquí se mostrará todo lo que metamos dentro del layout -->
+    <slot />
+</body>
+</html>
+
+<style is:global>
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    }
+
+    main {
+        padding: 1rem 2rem;
+    }
+</style>
